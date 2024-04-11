@@ -392,7 +392,7 @@ public class SkeletonScript extends LoopingScript {
         }
         else
         {
-            if(Movement.traverse(NavPath.resolve(AlkharidCity.getRandomWalkableCoordinate())) == TraverseEvent.State.FINISHED)
+            if(Movement.traverse(NavPath.resolve(Alkharidmine.getRandomWalkableCoordinate())) == TraverseEvent.State.FINISHED)
             {
                 println(" In Mining Area");
                 botState = BotState.MINING;
@@ -417,7 +417,7 @@ public class SkeletonScript extends LoopingScript {
             //}
         }else
         {
-            if(Movement.traverse(NavPath.resolve(AlKharidBank.getRandomWalkableCoordinate())) == TraverseEvent.State.FINISHED)
+            if(Movement.traverse(NavPath.resolve(AlkharidCity.getRandomWalkableCoordinate())) == TraverseEvent.State.FINISHED)
             {
                 println(" Reached AlKahrid City Area");
                 botState = BotState.BANKING;
