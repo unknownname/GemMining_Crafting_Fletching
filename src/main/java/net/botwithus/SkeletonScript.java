@@ -360,13 +360,13 @@ public class SkeletonScript extends LoopingScript {
                     Execution.delay(random.nextLong(750,1250));
                     println("Interacted UnCommonGem: " + UncommonGem.interact("Mine"));
                     Execution.delay(random.nextLong(750,1250));
-                    Execution.delayUntil( random.nextLong(35000,42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0,100) || Client.getLocalPlayer().getAnimationId() ==-1));
+                    Execution.delayUntil( random.nextLong(35000,42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0,30)));
                 }else if(firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0,100))
                 {
                     Execution.delay(random.nextLong(750,1250));
                     println("Interacted UnCommonGem: " + UncommonGem.interact("Mine"));
                     Execution.delay(random.nextLong(750,1250));
-                    Execution.delayUntil( random.nextLong(35000,42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0,100) || Client.getLocalPlayer().getAnimationId() ==-1));
+                    Execution.delayUntil( random.nextLong(35000,42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0,30)));
                 }
 
             }else
