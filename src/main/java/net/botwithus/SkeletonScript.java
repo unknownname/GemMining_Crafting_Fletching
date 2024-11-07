@@ -54,7 +54,7 @@ public class SkeletonScript extends LoopingScript {
 
     private Random random = new Random();
     private Pattern gembagpattern = Regex.getPatternForContainingOneOf("Gem bag", "Gem bag (upgraded)");
-    private Area Alkharidmine = new Area.Rectangular(new Coordinate(3301,3284,0), new Coordinate(3306,3274,0));
+    private Area Alkharidmine = new Area.Rectangular(new Coordinate(3297, 3287, 0), new Coordinate(3302, 3282, 0));
     private Area AlkharidCity = new Area.Rectangular(new Coordinate(3273,3177,0), new Coordinate(3277,3185,0));
     private Area AlKharidBank = new Area.Rectangular(new Coordinate(3274,3168,0), new Coordinate(3267,3171,0));
     private Area wararea = new Area.Rectangular(new Coordinate(3295,10132,0), new Coordinate(3301,10128,0));
@@ -329,10 +329,23 @@ public class SkeletonScript extends LoopingScript {
         if (Skills.MINING.getLevel() <20)
         {
             SceneObject CommonGem = SceneObjectQuery.newQuery().name("Common gem rock").option("Mine").results().random();
-            if (CommonGem != null) {
-
-                println("Interacted CommonGem: " + CommonGem.interact("Mine"));
-
+            List<Headbar> headbars = Client.getLocalPlayer().getHeadbars();
+            if(!headbars.isEmpty()) {
+                Headbar firsheadbar = headbars.get(0);
+                if (CommonGem != null && Client.getLocalPlayer().getAnimationId() == -1) {
+                    Execution.delay(random.nextLong(750, 1250));
+                    println("Interacted CommonGem: " + CommonGem.interact("Mine"));
+                    Execution.delay(random.nextLong(750, 1250));
+                    Execution.delayUntil(random.nextLong(35000, 42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0, 30)));
+                } else if (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0, 100)) {
+                    Execution.delay(random.nextLong(750, 1250));
+                    println("Interacted CommonGem: " + CommonGem.interact("Mine"));
+                    Execution.delay(random.nextLong(750, 1250));
+                    Execution.delayUntil(random.nextLong(35000, 42000), () -> (firsheadbar.getId() == 5 && firsheadbar.getWidth() <= RandomGenerator.nextInt(0, 30)));
+                }
+            } else
+            {
+                println(" Headbar Check failed");
             }
         }
         if (Skills.MINING.getLevel() >=20)
@@ -401,6 +414,20 @@ public class SkeletonScript extends LoopingScript {
         }
 
         return random.nextLong(1250, 1750);
+    }
+
+    private void navigateToMine()
+    {
+        Coordinate randomcoor = Alkharidmine.getRandomCoordinate();
+        if( randomcoor !=null)
+        {
+            Movement.traverse(NavPath.resolve(randomcoor));
+            Execution.delayUntil( 360000, () -> Alkharidmine.contains(Client.getLocalPlayer().getCoordinate()));
+
+        }else
+        {
+            println("U");
+        }
     }
 
 
