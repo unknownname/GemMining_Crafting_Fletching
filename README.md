@@ -1,10 +1,8 @@
 Description
 
-AlKhaird Gem Mining Script , with local Bank or War Retreat Teleport
+AlKhaird Gem Mining Script
 
-Required Items and Abilities:
-Togglable Feature(Config Tab): 
-   -- Mysitcal Sand Seed (false by Default ), should be placed in inventory
-  --  War Retreat Teleport (false by default),required on action bar
-
-Mystical Sand Seed in the inventory War Retreat Teleport - configuration setting for faster mining
+Supported:
+Both Gem bags (Upgraded and Non Upgraded)
+Support Multiple Bank locations and War's
+Mining -> Crafting -> Fletching - Auto Check player levels if its possible or not
