@@ -135,7 +135,7 @@ public class GemScriptUI extends ScriptGraphicsContext {
             script.setSelectedBank(bankArray[selectedBankIndex]);
         }
         
-        script.setWarTeleport(ImGui.Checkbox("Use War's Retreat", script.isWarTeleport()));
+        //script.setWarTeleport(ImGui.Checkbox("Use War's Retreat", script.isWarTeleport()));
         
         ImGui.Separator();
         
